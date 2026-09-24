@@ -26,9 +26,9 @@ Microservicio REST de usuarios (CRUD, registro y login), construido con **FastAP
 | `DELETE` | `/user/{user_id}` | Elimina un usuario |
 | `GET` | `/users/` | Lista todos los usuarios |
 | `POST` | `/register` | Registro público (siempre `admin: false`) |
-| `POST` | `/login?name=...&password=...` | Valida credenciales y devuelve el ID del usuario |
+| `POST` | `/login?name=...&password=...` | Valida credenciales y devuelve el ID del usuario (`401` si son inválidas) |
 
-La documentación interactiva queda disponible en `/docs` (Swagger UI).
+Los recursos inexistentes responden `404`. La documentación interactiva queda disponible en `/docs` (Swagger UI).
 
 ### Modelo `User`
 
@@ -42,9 +42,13 @@ La documentación interactiva queda disponible en `/docs` (Swagger UI).
 
 > ⚠️ Proyecto académico: las contraseñas se guardan en texto plano. No usar en producción.
 
-## Ejecución
+## Configuración
 
-Requiere MongoDB escuchando en `localhost:27017`.
+| Variable | Por defecto | Descripción |
+|---|---|---|
+| `MONGO_URL` | `mongodb://localhost:27017/` | Conexión a MongoDB |
+
+## Ejecución
 
 ```bash
 # MongoDB local
@@ -54,7 +58,7 @@ docker run -d --name mongo -p 27017:27017 mongo
 pip install -r requirements.txt
 fastapi dev main.py --port 8001
 
-# Docker (usa la red del host para alcanzar MongoDB en localhost)
+# Docker
 docker build -t user-service .
 docker run --network host user-service
 ```
