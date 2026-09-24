@@ -7,8 +7,8 @@ Microservicio REST de usuarios (CRUD, registro y login), construido con **FastAP
 | Servicio | Puerto | Responsabilidad |
 |---|---|---|
 | **cs2032-user-service** | 8001 | Usuarios, registro y login |
-| [cs2032-car-service](https://github.com/maykol-morales/cs2032-car-service) | 8002 | Catálogo de autos |
-| [cs2032-purchase-service](https://github.com/maykol-morales/cs2032-purchase-service) | 8003 | Compras (marca el auto como no disponible) |
+| [cs2032-car-service](https://github.com/Maykol-Morales/cs2032-car-service) | 8002 | Catálogo de autos |
+| [cs2032-purchase-service](https://github.com/Maykol-Morales/cs2032-purchase-service) | 8003 | Compras (marca el auto como no disponible) |
 
 ## Stack
 
